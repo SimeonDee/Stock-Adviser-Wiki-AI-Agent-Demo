@@ -1,0 +1,9 @@
+agno
+psycopg2
+sqlalchemy
+fastapi
+openai
+pgvector
+uvicorn
+duckduckgo-search
+PyPDF2
