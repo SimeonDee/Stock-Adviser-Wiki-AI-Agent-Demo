@@ -11,3 +11,5 @@ Agentic RAG AI implementation demo using Phidata Framework for Recipe Knowledge 
 - `pgvector`: an open-source extension for PostgreSQL that enables storing and searching over machine learning-generated embeddings (vectors). Useful for applications like: RAG for LLMs
 - `PyPDF2`: a free, open-source, pure-Python library for working with PDF files. It allows users to manipulate PDFs in various ways, including splitting, merging, cropping, and transforming pages.
 - `groq`: Groq API for accessing Groq LLM and resources.
+- `yfinance`: A tool for Yahoo finance stock data API
+- `wikipedia`: A wikipedia tool for querying Wikipedia
