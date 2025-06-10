@@ -1,9 +1,20 @@
-from pdf_agentic_rag_app import show_output
+from fastapi import FastAPI
+
+from agno.agent import RunResponse
+from agent import agent
+from schemas.query import Query
+
+app = FastAPI()
 
 
-def main():
-    show_output()
+@app.post("/run/{user_id}")
+async def run_agent(user_id: str, query: Query):
+    agent.user_id = user_id
+    response: RunResponse = agent.run(
+            message=query.message,
+            user_id=user_id,
+        )
 
-
-if __name__ == "__main__":
-    main()
+    return {
+        "response": response.content
+    }
