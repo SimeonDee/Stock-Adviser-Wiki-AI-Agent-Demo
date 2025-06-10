@@ -9,3 +9,4 @@ duckduckgo-search
 PyPDF2
 yfinance
 wikipedia
+pymysql
