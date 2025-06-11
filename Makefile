@@ -7,8 +7,10 @@ APP_MODULE_NAME = main
 HOST = 0.0.0.0
 PORT = 5000
 
-# Create a virtual env
+
+# installs "uv" and use it to Create a virtual env
 venv:
+	pip install uv
 	uv venv $(VENV_NAME) -p 3.12.4
 
 # Activating virtual env (for linux and MacOS)
@@ -49,6 +51,7 @@ run-server-prod:
 
 # Run the Client (Streamlit) app
 run-client:
+	uv add streamlit
 	streamlit run client/$(CLIENT_FILE_NAME)
 
 # tests

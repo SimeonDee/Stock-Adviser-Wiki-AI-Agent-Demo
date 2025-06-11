@@ -7,3 +7,4 @@ yfinance
 wikipedia
 pymysql
 requests
+# streamlit
