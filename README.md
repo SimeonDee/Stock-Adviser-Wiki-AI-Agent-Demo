@@ -81,8 +81,31 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 (.venv) ~ $ make run-client
 ```
 
-### 3. For running the tests
+## Teardown
+
+### 1. Stopping the Client (Streamlit) and the Server (FastAPI) apps
+
+- Navigate to the running client terminal
+- Press `Cntrl` + `C` key combination to stop the client
+- Navigate to the running server terminal
+- Press `Cntrl` + `C` key combination to stop the client
+
+### 2. Deactivate virtual envs
+
+```bash
+(.venv) ~ $ make deactivate
+```
+
+## Running the tests
 
 ```bash
 (.venv) ~ $ make test
+```
+
+## Clean ups
+
+Deletes the `.venv` and `__pycache__` directories
+
+```bash
+(.venv) ~ $ make clean
 ```
