@@ -46,9 +46,14 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 ~ $ make activate
 ```
 
-- for Windows users
+- for Windows (Command Prompts) users
 ```bash
-~ $ make activate-window
+~ $ make activate-windows
+```
+
+- for Windows (PowerShell) users
+```bash
+~ $ make activate-windows-ps
 ```
 
 #### Install dependencies
@@ -59,14 +64,14 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 
 #### Start the FastAPI Server (to serve the agent)
 
-- For PROD mode
+- For DEV mode
 ```bash
 (.venv) ~ $ make run-server
 ```
 
-- For DEV mode
+- For PROD mode
 ```bash
-(.venv) ~ $ make run-server-dev
+(.venv) ~ $ make run-server-prod
 ```
 
 ### 2. Setup the Client (Streamlit)
@@ -74,4 +79,10 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 #### Start the client (Streamlit app)
 ```bash
 (.venv) ~ $ make run-client
+```
+
+### 3. For running the tests
+
+```bash
+(.venv) ~ $ make test
 ```
