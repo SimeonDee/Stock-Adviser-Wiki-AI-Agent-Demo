@@ -1,6 +1,6 @@
 # Stock-Adviser-Wiki-AI-Agent-Demo
 
-A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with yfinance and wikipedia tools that can provide stock data, analysis and recommendations, and answer user queries from wikipedia knowledge base.
+A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with `yfinance` and `wikipedia` tools that can provide stock data, analysis and recommendations, and answer user queries from wikipedia knowledge base.
 
 ## Contacts
 `Adedoyin Simeon Adeyemi` | [LinkedIn](https://www.linkedin.com/in/adedoyin-adeyemi-a7827b160/)
@@ -19,4 +19,54 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 10. `PyMySQL`: MySQL connector for Python.
 11. `FastAPI`: Used to provide agent service as a RESTful API service.
 12. `Streamlit`: The Client. Used to provide a simple user-facing interface for interacting with the agent.
+13. `requests`: For making RESTful API request to the server from the client (Streamlit) App.
 
+### Project management tools used
+- `uv`: Fast and efficient package manager used for managing project dependencies.
+- `Makefile`: For managing commands for creating and activating virtual envs, installing dependencies, running the app and clean-up, all in one place.
+
+## Setup
+- Clone repo
+- Change directory into repo
+- open terminal (Unix-based) or Command Prompt (Windows) or Powershell
+
+### 1. Setup the Server
+
+#### Create virtual environment
+```bash
+~ $ make venv
+```
+
+#### Activate virtual environment
+- for Linux and MacOS users
+```bash
+~ $ make activate
+```
+
+- for Windows users
+```bash
+~ $ make activate-window
+```
+
+#### Install dependencies
+```bash
+(.venv) ~ $ make install
+```
+
+#### Start the FastAPI Server (to serve the agent)
+- For PROD mode
+```bash
+(.venv) ~ $ make run-server
+```
+
+- For DEV mode
+```bash
+(.venv) ~ $ make run-server-dev
+```
+
+### 1. Setup the Client (Streamlit)
+
+#### Start the client (Streamlit app)
+```bash
+(.venv) ~ $ make run-client
+```
