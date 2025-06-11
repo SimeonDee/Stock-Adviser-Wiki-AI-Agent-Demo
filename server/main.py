@@ -4,19 +4,19 @@ from fastapi import FastAPI, HTTPException, status, Depends
 from sqlalchemy import and_
 
 from agno.agent import RunResponse
-from src.agent import agent
+from server.src.agent import agent
 
-from src.schemas.query import Query
-from src.schemas.user import (
+from server.src.schemas.query import Query
+from server.src.schemas.user import (
     User,
     UserWithID,
     UserLogin,
     UserCreate,
 )
 
-from src.models.user import Users
-from src.config.db import conn
-from src.middlewares.middlewares import ensure_auth
+from server.src.models.user import Users
+from server.src.config.db import conn
+from server.src.middlewares.middlewares import ensure_auth
 
 
 app = FastAPI()
@@ -35,9 +35,11 @@ async def get_users() -> List[UserWithID]:
 # Register new user
 @app.post("/users/register")
 async def register_user(user: UserCreate) -> UserWithID:
-    existing_user = conn.execute(Users.select().where(
-        Users.c.email == user.email,
-    )).one_or_none()
+    existing_user = conn.execute(
+        Users.select().where(
+            Users.c.email == user.email,
+        )
+    ).one_or_none()
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -58,19 +60,21 @@ async def register_user(user: UserCreate) -> UserWithID:
     else:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Bad Request: Failed registering user."
+            detail="Bad Request: Failed registering user.",
         )
 
 
 # Login user
 @app.post("/users/login")
 async def login_user(user: UserLogin) -> UserWithID:
-    logged_in_user = conn.execute(Users.select().where(
-        and_(
-            Users.c.email == user.email,
-            Users.c.password == user.password
+    logged_in_user = conn.execute(
+        Users.select().where(
+            and_(
+                Users.c.email == user.email,
+                Users.c.password == user.password,
+            )
         )
-    )).one_or_none()
+    ).one_or_none()
     if logged_in_user:
         return logged_in_user._asdict()
     else:
@@ -83,9 +87,11 @@ async def login_user(user: UserLogin) -> UserWithID:
 # Login user
 @app.get("/users/{user_id}")
 async def get_user(user_id: int) -> User:
-    found_user = conn.execute(Users.select().where(
-        Users.c.id == user_id,
-    )).one_or_none()
+    found_user = conn.execute(
+        Users.select().where(
+            Users.c.id == user_id,
+        )
+    ).one_or_none()
     if found_user:
         return found_user._asdict()
     else:
@@ -103,10 +109,8 @@ async def run_agent(
 ):
     agent.user_id = current_user.email
     response: RunResponse = agent.run(
-            message=query.message,
-            user_id=current_user.email,
-        )
+        message=query.message,
+        user_id=current_user.email,
+    )
 
-    return {
-        "response": response.content
-    }
+    return {"response": response.content}

@@ -2,7 +2,10 @@
 
 A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with `yfinance` and `wikipedia` tools that can provide stock data, analysis and recommendations, and answer user queries from wikipedia knowledge base.
 
+The Agent is provided as a `RESTful API service` implemented using `FastAPI` (see `server` dir of this repo), and a user-facing `client application` for interacting with the agent is also implemented using `Streamlit` (see `client` dir of this repo).
+
 ## Contacts
+
 `Adedoyin Simeon Adeyemi` | [LinkedIn](https://www.linkedin.com/in/adedoyin-adeyemi-a7827b160/)
 
 ## Tools and Tech Stack
@@ -18,10 +21,12 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 9. `SQLite`: For agent's memory and session storage of conversation histories.
 10. `PyMySQL`: MySQL connector for Python.
 11. `FastAPI`: Used to provide agent service as a RESTful API service.
-12. `Streamlit`: The Client. Used to provide a simple user-facing interface for interacting with the agent.
-13. `requests`: For making RESTful API request to the server from the client (Streamlit) App.
+12. `uvicorn`: FastAPI server.
+13. `Streamlit`: The Client. Used to provide a simple user-facing interface for interacting with the agent.
+14. `requests`: For making RESTful API request to the server from the client (Streamlit) App.
 
 ### Project management tools used
+
 - `uv`: Fast and efficient package manager used for managing project dependencies.
 - `Makefile`: For managing commands for creating and activating virtual envs, installing dependencies, running the app and clean-up, all in one place.
 
@@ -30,6 +35,11 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 - Clone repo
 - Change directory into repo
 - open terminal (Unix-based) or Command Prompt (Windows) or Powershell
+- Install `uv` package manager if not already installed, using the command below:
+
+```bash
+~ $ pip install uv
+```
 
 ### 1. Setup the Server
 
@@ -42,16 +52,19 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 #### Activate virtual environment
 
 - for Linux and MacOS users
+
 ```bash
 ~ $ make activate
 ```
 
 - for Windows (Command Prompts) users
+
 ```bash
 ~ $ make activate-windows
 ```
 
 - for Windows (PowerShell) users
+
 ```bash
 ~ $ make activate-windows-ps
 ```
@@ -65,11 +78,13 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 #### Start the FastAPI Server (to serve the agent)
 
 - For DEV mode
+
 ```bash
 (.venv) ~ $ make run-server
 ```
 
 - For PROD mode
+
 ```bash
 (.venv) ~ $ make run-server-prod
 ```
@@ -77,6 +92,7 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 ### 2. Setup the Client (Streamlit)
 
 #### Start the client (Streamlit app)
+
 ```bash
 (.venv) ~ $ make run-client
 ```

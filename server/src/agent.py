@@ -21,7 +21,7 @@ MODEL_NAME = os.getenv("OPENAI_DEFAULT_MODEL")
 SQLITE_DB_PATH = os.getenv("SQLITE_AGENT_STORE_DB_PATH")
 
 # Instructions/Prompt
-with open("src/prompts/agent_prompt.txt", "r") as f:
+with open("server/src/prompts/agent_prompt.txt", "r") as f:
     instructions = f.readlines()
 
 # Storage for a single session store
@@ -33,7 +33,7 @@ session_storage = SqliteStorage(
 Memory
 user_memory = Memory(
     db=SqliteMemoryDb(table_name="agent_users_memory", db_file=SQLITE_DB_PATH),
-    model=OpenAIChat(id=MODEL_NAME)
+    model=OpenAIChat(id=MODEL_NAME),
 )
 
 agent = Agent(
@@ -47,7 +47,7 @@ agent = Agent(
             company_info=True,
             analyst_recommendations=True,
         ),
-        WikipediaTools()
+        WikipediaTools(),
     ],
     storage=session_storage,
     memory=user_memory,

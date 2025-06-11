@@ -1,12 +1,9 @@
 agno
-psycopg2
 sqlalchemy
 fastapi
 openai
-pgvector
 uvicorn
-duckduckgo-search
-PyPDF2
 yfinance
 wikipedia
 pymysql
+requests
