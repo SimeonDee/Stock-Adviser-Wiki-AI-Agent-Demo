@@ -26,6 +26,7 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 - `Makefile`: For managing commands for creating and activating virtual envs, installing dependencies, running the app and clean-up, all in one place.
 
 ## Setup
+
 - Clone repo
 - Change directory into repo
 - open terminal (Unix-based) or Command Prompt (Windows) or Powershell
@@ -33,11 +34,13 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 ### 1. Setup the Server
 
 #### Create virtual environment
+
 ```bash
 ~ $ make venv
 ```
 
 #### Activate virtual environment
+
 - for Linux and MacOS users
 ```bash
 ~ $ make activate
@@ -49,11 +52,13 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 ```
 
 #### Install dependencies
+
 ```bash
 (.venv) ~ $ make install
 ```
 
 #### Start the FastAPI Server (to serve the agent)
+
 - For PROD mode
 ```bash
 (.venv) ~ $ make run-server
