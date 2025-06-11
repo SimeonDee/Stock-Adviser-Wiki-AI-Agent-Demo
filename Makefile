@@ -35,13 +35,13 @@ install:
 run-python:
 	python3 ./server/$(SERVER_FILE_NAME)
 
-# Run the FastAPI app in PROD mode
+# Run the Server (FastAPI) app in DEV mode
 run-server:
-	uvicorn ./server/$(APP_MODULE_NAME):$(APP_NAME) --host $(HOST)
-
-# Run the FastAPI app in DEV mode
-run-server-dev:
 	uvicorn ./server/$(APP_MODULE_NAME):$(APP_NAME) --host $(HOST) --port $(PORT) --reload
+
+# Run the Server (FastAPI) app in PROD mode
+run-server-prod:
+	uvicorn ./server/$(APP_MODULE_NAME):$(APP_NAME) --host $(HOST)
 
 # Run the Client (Streamlit) app
 run-client:
