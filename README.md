@@ -1,6 +1,9 @@
 # Stock-Adviser-Wiki-AI-Agent-Demo
 
-A demo AI Agent equiped with yfinance and wikipedia tool that can provide stock analysis and recommendation and answer user queries from wikipedia knowledge base. This agent is implemented using [Agno Agentic Framework](https://docs.agno.com/)
+A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with yfinance and wikipedia tools that can provide stock analysis and recommendation and answer user queries from wikipedia knowledge base. This agent is implemented using 
+
+## Contacts
+`Adedoyin Simeon Adeyemi` | [LinkedIn](https://www.linkedin.com/in/adedoyin-adeyemi-a7827b160/)
 
 ## Tools and Tech Stack
 
