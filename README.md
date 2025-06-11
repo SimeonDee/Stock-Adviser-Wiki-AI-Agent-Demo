@@ -69,7 +69,7 @@ A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.co
 (.venv) ~ $ make run-server-dev
 ```
 
-### 1. Setup the Client (Streamlit)
+### 2. Setup the Client (Streamlit)
 
 #### Start the client (Streamlit app)
 ```bash
