@@ -42,99 +42,99 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 
   **_Response_**:
 
-```json
-{
-  "Health": "Ok"
-}
-```
+  ```json
+  {
+    "Health": "Ok"
+  }
+  ```
 
 - GET `/users`: Fetch all registered agent users
 
   **_Response_**:
 
-```json
-[
-  {
-    "fullname": "",
-    "email": "",
-    "id": 0
-  }
-]
-```
+  ```json
+  [
+    {
+      "fullname": "",
+      "email": "",
+      "id": 0
+    }
+  ]
+  ```
 
 - GET `/users/{user_id}`: Fetch details of a user with supplied `user_id`.
 
   **_Response_**:
 
-```json
-{
-  "fullname": "Sampple User Name",
-  "email": "user@mail-server.com"
-}
-```
+  ```json
+  {
+    "fullname": "Sampple User Name",
+    "email": "user@mail-server.com"
+  }
+  ```
 
 - POST `/users/register`: Registers a new user
 
   **_Request Body_**:
 
-```json
-{
-  "fullname": "",
-  "email": "",
-  "password": "string"
-}
-```
+  ```json
+  {
+    "fullname": "",
+    "email": "",
+    "password": "string"
+  }
+  ```
 
-**_Response_**:
+  **_Response_**:
 
-```json
-{
-  "fullname": "",
-  "email": "",
-  "id": 0
-}
-```
+  ```json
+  {
+    "fullname": "",
+    "email": "",
+    "id": 0
+  }
+  ```
 
 - POST `/users/login`: Login a user
 
   **_Request Body_**:
 
-```json
-{
-  "email": "",
-  "password": "string"
-}
-```
+  ```json
+  {
+    "email": "",
+    "password": "string"
+  }
+  ```
 
-**_Response_**:
+  **_Response_**:
 
-```json
-{
-  "fullname": "",
-  "email": "",
-  "id": 0
-}
-```
+  ```json
+  {
+    "fullname": "",
+    "email": "",
+    "id": 0
+  }
+  ```
 
 - POST `/agents/run/{user_id}`: Sends the query of user with `user_id` to the AI agent for processing.
 
   **_Request Body_**:
 
-```json
-{
-  "message": "user query"
-}
-```
+  ```json
+  {
+    "message": "user query"
+  }
+  ```
 
-**_Response_**:
+  **_Response_**:
 
-```json
-{
-  "fullname": "",
-  "email": "",
-  "id": 0
-}
-```
+  ```json
+  {
+    "fullname": "",
+    "email": "",
+    "id": 0
+  }
+  ```
 
 ## Setup
 
@@ -143,18 +143,18 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 - Open terminal (Unix-based) or Command Prompt (Windows) or Powershell
 - Install `uv` package manager if not already installed, using the command below:
 
-```bash
-~ $ pip install uv
-```
+  ```bash
+  ~ $ pip install uv
+  ```
 
 ### 1. Setup the Server
 
 - Ensure the terminal/command prompt is opened
 - Change directory into the `server` directory and follow the rest of the setup steps
 
-```bash
-~ $ cd server
-```
+  ```bash
+  ~ $ cd server
+  ```
 
 #### Create virtual environment
 
@@ -166,21 +166,21 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 
 - for Linux and MacOS users
 
-```bash
-~ server $ make activate
-```
+  ```bash
+  ~ server $ make activate
+  ```
 
 - for Windows (Command Prompts) users
 
-```bash
-~ server $ make activate-windows
-```
+  ```bash
+  ~ server $ make activate-windows
+  ```
 
 - for Windows (PowerShell) users
 
-```bash
-~ server $ make activate-windows-ps
-```
+  ```bash
+  ~ server $ make activate-windows-ps
+  ```
 
 #### Install dependencies
 
@@ -192,26 +192,25 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 
 - For DEV mode
 
-```bash
-(.venv) ~ server $ make run-server
-```
+  ```bash
+  (.venv) ~ server $ make run-server
+  ```
 
 - For PROD mode
 
-```bash
-(.venv) ~ server $ make run-server-prod
-```
+  ```bash
+  (.venv) ~ server $ make run-server-prod
+  ```
 
-### 2. Test the Server API with Swagger-UI
+### Test the Server API with Swagger-UI
 
 - If running the server locally on "localhost"
-- Visit `<host>:<port>/docs` e.g. `localhost:5000/docs` to access the Swagger-UI for testing the agent API routes
+- Visit `<BASE_URL>/docs` e.g. `localhost:5000/docs` to access the Swagger-UI for testing the agent API routes
 
-- Base: ``
+### Test the server using a client
 
-```bash
-(.venv) ~ $ make run-client
-```
+- Clone the [Client Repo here](https://github.com/SimeonDee/Stock-Adviser-Wiki-AI-Agent-Client)
+- Follow the README instructions in the client repo to set-up the app.
 
 ## Teardown
 
