@@ -1,0 +1,8 @@
+agno
+sqlalchemy
+fastapi
+openai
+uvicorn
+yfinance
+wikipedia
+pymysql

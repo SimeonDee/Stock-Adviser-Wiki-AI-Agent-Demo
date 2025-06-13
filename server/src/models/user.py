@@ -1,6 +1,6 @@
 from sqlalchemy import Table, Column, Integer, String
 
-from server.src.config.db import conn, metadata
+from src.config.db import conn, metadata
 
 Users = Table(
     "agno_agent_users",

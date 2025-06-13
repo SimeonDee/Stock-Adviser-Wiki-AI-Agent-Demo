@@ -21,7 +21,7 @@ MODEL_NAME = os.getenv("OPENAI_DEFAULT_MODEL")
 SQLITE_DB_PATH = os.getenv("SQLITE_AGENT_STORE_DB_PATH")
 
 # Instructions/Prompt
-with open("server/src/prompts/agent_prompt.txt", "r") as f:
+with open("src/prompts/agent_prompt.txt", "r") as f:
     instructions = f.readlines()
 
 # Storage for a single session store

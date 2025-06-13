@@ -4,19 +4,19 @@ from fastapi import FastAPI, HTTPException, status, Depends
 from sqlalchemy import and_
 
 from agno.agent import RunResponse
-from server.src.agent import agent
+from src.agent import agent
 
-from server.src.schemas.query import Query
-from server.src.schemas.user import (
+from src.schemas.query import Query
+from src.schemas.user import (
     User,
     UserWithID,
     UserLogin,
     UserCreate,
 )
 
-from server.src.models.user import Users
-from server.src.config.db import conn
-from server.src.middlewares.middlewares import ensure_auth
+from src.models.user import Users
+from src.config.db import conn
+from src.middlewares.middlewares import ensure_auth
 
 
 app = FastAPI()
@@ -101,7 +101,7 @@ async def get_user(user_id: int) -> User:
         )
 
 
-@app.post("/run/{user_id}")
+@app.post("/agents/run/{user_id}")
 async def run_agent(
     user_id: int,
     query: Query,

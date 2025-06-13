@@ -1,9 +1,9 @@
 # To-Do
 from fastapi import HTTPException, status, Request
 
-from server.src.models.user import Users
-from server.src.schemas.user import User
-from server.src.config.db import conn
+from src.models.user import Users
+from src.schemas.user import User
+from src.config.db import conn
 
 
 async def ensure_auth(request: Request) -> User:
