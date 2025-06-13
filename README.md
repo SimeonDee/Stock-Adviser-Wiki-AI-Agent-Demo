@@ -2,7 +2,7 @@
 
 A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with `yfinance` and `wikipedia` tools that can provide stock data, analysis and recommendations, and answer user queries from wikipedia knowledge base.
 
-The Agent is provided as a `RESTful API service` implemented using `FastAPI` (see `server` dir of this repo), and a user-facing `client application` for interacting with the agent is also implemented using `Streamlit` (see `Stock-Adviser-Wiki-AI-Agent-Client`).
+The Agent is provided as a `RESTful API service` implemented using `FastAPI` (see `server` dir of this repo). A user-facing Streamlit `client application` for interacting with the agent is also implemented in the [Stock-Adviser-Wiki-AI-Agent-Client](https://github.com/SimeonDee/Stock-Adviser-Wiki-AI-Agent-Client) repo.
 
 ## Contacts
 
