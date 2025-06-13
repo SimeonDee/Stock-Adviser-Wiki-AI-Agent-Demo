@@ -2,7 +2,7 @@
 
 A demo AI Agent, implemented using [Agno Agentic Framework](https://docs.agno.com/), equiped with `yfinance` and `wikipedia` tools that can provide stock data, analysis and recommendations, and answer user queries from wikipedia knowledge base.
 
-The Agent is provided as a `RESTful API service` implemented using `FastAPI` (see `server` dir of this repo), and a user-facing `client application` for interacting with the agent is also implemented using `Streamlit` (see `client` dir of this repo).
+The Agent is provided as a `RESTful API service` implemented using `FastAPI` (see `server` dir of this repo), and a user-facing `client application` for interacting with the agent is also implemented using `Streamlit` (see `Stock-Adviser-Wiki-AI-Agent-Client`).
 
 ## Contacts
 
@@ -22,19 +22,125 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 10. `PyMySQL`: MySQL connector for Python.
 11. `FastAPI`: Used to provide agent service as a RESTful API service.
 12. `uvicorn`: FastAPI server.
-13. `Streamlit`: The Client. Used to provide a simple user-facing interface for interacting with the agent.
-14. `requests`: For making RESTful API request to the server from the client (Streamlit) App.
 
 ### Project management tools used
 
 - `uv`: Fast and efficient package manager used for managing project dependencies.
 - `Makefile`: For managing commands for creating and activating virtual envs, installing dependencies, running the app and clean-up, all in one place.
 
+## API Specs
+
+- **BASE URL:** `http://localhost:5000`
+
+---
+
+### Routes
+
+- GET `/docs`: API documentation and testing using Swagger-UI
+
+- GET `/health`: Health check
+
+  **_Response_**:
+
+```json
+{
+  "Health": "Ok"
+}
+```
+
+- GET `/users`: Fetch all registered agent users
+
+  **_Response_**:
+
+```json
+[
+  {
+    "fullname": "",
+    "email": "",
+    "id": 0
+  }
+]
+```
+
+- GET `/users/{user_id}`: Fetch details of a user with supplied `user_id`.
+
+  **_Response_**:
+
+```json
+{
+  "fullname": "Sampple User Name",
+  "email": "user@mail-server.com"
+}
+```
+
+- POST `/users/register`: Registers a new user
+
+  **_Request Body_**:
+
+```json
+{
+  "fullname": "",
+  "email": "",
+  "password": "string"
+}
+```
+
+**_Response_**:
+
+```json
+{
+  "fullname": "",
+  "email": "",
+  "id": 0
+}
+```
+
+- POST `/users/login`: Login a user
+
+  **_Request Body_**:
+
+```json
+{
+  "email": "",
+  "password": "string"
+}
+```
+
+**_Response_**:
+
+```json
+{
+  "fullname": "",
+  "email": "",
+  "id": 0
+}
+```
+
+- POST `/agents/run/{user_id}`: Sends the query of user with `user_id` to the AI agent for processing.
+
+  **_Request Body_**:
+
+```json
+{
+  "message": "user query"
+}
+```
+
+**_Response_**:
+
+```json
+{
+  "fullname": "",
+  "email": "",
+  "id": 0
+}
+```
+
 ## Setup
 
 - Clone repo
-- Change directory into repo
-- open terminal (Unix-based) or Command Prompt (Windows) or Powershell
+- Change directory into repo dir
+- Open terminal (Unix-based) or Command Prompt (Windows) or Powershell
 - Install `uv` package manager if not already installed, using the command below:
 
 ```bash
@@ -43,10 +149,17 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 
 ### 1. Setup the Server
 
+- Ensure the terminal/command prompt is opened
+- Change directory into the `server` directory and follow the rest of the setup steps
+
+```bash
+~ $ cd server
+```
+
 #### Create virtual environment
 
 ```bash
-~ $ make venv
+~ server $ make venv
 ```
 
 #### Activate virtual environment
@@ -54,25 +167,25 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 - for Linux and MacOS users
 
 ```bash
-~ $ make activate
+~ server $ make activate
 ```
 
 - for Windows (Command Prompts) users
 
 ```bash
-~ $ make activate-windows
+~ server $ make activate-windows
 ```
 
 - for Windows (PowerShell) users
 
 ```bash
-~ $ make activate-windows-ps
+~ server $ make activate-windows-ps
 ```
 
 #### Install dependencies
 
 ```bash
-(.venv) ~ $ make install
+(.venv) ~ server $ make install
 ```
 
 #### Start the FastAPI Server (to serve the agent)
@@ -80,18 +193,21 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 - For DEV mode
 
 ```bash
-(.venv) ~ $ make run-server
+(.venv) ~ server $ make run-server
 ```
 
 - For PROD mode
 
 ```bash
-(.venv) ~ $ make run-server-prod
+(.venv) ~ server $ make run-server-prod
 ```
 
-### 2. Setup the Client (Streamlit)
+### 2. Test the Server API with Swagger-UI
 
-#### Start the client (Streamlit app)
+- If running the server locally on "localhost"
+- Visit `<host>:<port>/docs` e.g. `localhost:5000/docs` to access the Swagger-UI for testing the agent API routes
+
+- Base: ``
 
 ```bash
 (.venv) ~ $ make run-client
@@ -99,7 +215,7 @@ The Agent is provided as a `RESTful API service` implemented using `FastAPI` (se
 
 ## Teardown
 
-### 1. Stopping the Client (Streamlit) and the Server (FastAPI) apps
+### 1. Stopping the Server (FastAPI app)
 
 - Navigate to the running client terminal
 - Press `Cntrl` + `C` key combination to stop the client
